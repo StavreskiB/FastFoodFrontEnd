@@ -1,0 +1,96 @@
+<div class="row ml-5 mr-5 mt-5 justify-content-center">
+    <div class="col-3">
+      <h3 style="margin: 0px !important;align-self: center !important;">Додади нова продукт</h3>
+    </div>
+    <div class="col-1">
+      <a class="btn btn-lg" (click)="showNewProduct()">
+        <span>+</span>
+      </a>
+    </div>
+    <div class="col-8"></div>
+    <div class="col-12">
+        <mat-divider class="mt-3"></mat-divider>
+    </div>
+  </div>
+  
+<div class="row ml-5 mr-5 mt-4 justify-content-center">
+    <div class="col-3">
+        <mat-form-field class="w-100" appearance="fill" *ngIf="!newProduct">
+            <mat-label>Продукт</mat-label>
+            <select matNativeControl required>
+              <option value="platena">Кока кола</option>
+              <option value="neplatena">Швепс</option>
+              <option value="neplatena">Пепси</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="fill" *ngIf="newProduct">
+            <mat-label>Продукт</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div class="col-3">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Тип на продукт</mat-label>
+            <select matNativeControl required>
+              <option value="platena">Парче</option>
+              <option value="neplatena">Грамажа</option>
+            </select>
+        </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Количина</mat-label>
+          <input matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-3 text-center">
+      <a class="btn btn-lg">
+          <span>Додади</span>
+      </a>
+    </div>
+</div>
+<div class="row ml-5 mr-5 mt-4 justify-content-center">
+    <div class="col-12 mt-2">
+        <table class="table">
+            <thead id="test">
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Продукт</th>
+                    <th scope="col">Преостаната количина</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <th scope="row">1</th>
+                    <td>Кока кола</td>
+                    <td>5</td>
+                </tr>
+                <tr class="text-center">
+                    <th scope="row">1</th>
+                    <td>Кока кола</td>
+                    <td>5</td>
+                </tr>
+                <tr class="text-center">
+                    <th scope="row">1</th>
+                    <td>Кока кола</td>
+                    <td>5</td>
+                </tr>
+                <tr class="text-center">
+                    <th scope="row">1</th>
+                    <td>Кока кола</td>
+                    <td>5</td>
+                </tr>
+                <tr class="text-center">
+                    <th scope="row">1</th>
+                    <td>Кока кола</td>
+                    <td>5</td>
+                </tr>
+                <tr class="text-center">
+                    <th scope="row">1</th>
+                    <td>Кока кола</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

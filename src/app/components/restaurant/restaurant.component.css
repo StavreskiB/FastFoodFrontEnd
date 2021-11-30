@@ -1,0 +1,128 @@
+#middRow{
+    height: 9% !important;
+    background-color: #020C25 !important;
+}
+
+.tables:hover{
+    border-bottom: 3px solid #FF9E65;
+    background-color: rgb(255,158,101, 0.05);
+    cursor: pointer;
+}
+
+/* #buttons{
+    border-radius: 25px !important;
+    background-color: #FF9E65 ;
+} */
+
+#bottomRow{
+    background-color: #1F2A47 !important;
+    height: 84% !important
+} 
+
+.btn{
+    color: #fff;
+    background: linear-gradient(135deg, #FF9E65, #853507);
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btn:hover{
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    animation: rotate 0.7s ease-in-out both;
+}
+.btn:before,
+.btn:after{
+    content: '';
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: all 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btn:hover:before,
+.btn:hover:after{
+    opacity: 0.15;
+}
+.btn:hover:before{ transform: translate3d(50%, 0, 0) scale(0.9); }
+.btn:hover:after{ transform: translate(50%, 0) scale(1.1); }
+@keyframes rotate{
+    0%{ transform: rotate(0deg); }
+    25%{ transform: rotate(3deg); }
+    50%{ transform: rotate(-3deg); }
+    75%{ transform: rotate(1deg); }
+    100%{ transform: rotate(0deg); }
+}
+@media only screen and (max-width: 767px){
+    .btn{ margin-bottom: 20px; }
+}
+
+.orders{
+    border: 1px solid white;
+    border-radius:10px;
+}
+
+::ng-deep .mat-form-field .mat-form-field-flex{
+      background-color: white; 
+}
+
+li:hover{
+    background-color: #1F2A47;
+    cursor: pointer;
+    color: white;
+}
+
+
+#bill{
+    color: #fff;
+    background: linear-gradient(135deg, #FF9E65, #853507);
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    position: fixed !important;
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    right: -3%;
+    top: 21%;
+}
+#bill:hover{
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+thead{
+    color: black !important;
+    background-color: white !important;
+}
+
+tbody tr:hover{
+    cursor:pointer;
+    background-color: lightgrey !important;
+}
+
+/deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #FF9E65;
+}
+
+/deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #FF9E65;
+}

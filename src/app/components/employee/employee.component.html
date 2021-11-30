@@ -1,0 +1,78 @@
+<div class="row ml-5 mr-5 mb-2 mt-5 justify-content-center">
+    <div class="col-12 mb-4">
+        <h3>Додади нов вработен</h3>
+        <mat-divider></mat-divider>
+    </div>
+    
+    <div class="col-3">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Име</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div class="col-3">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Презиме</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div class="col-3">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Емаил</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div class="col-3">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Мобилен</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div class="col-12 text-right">
+        <a class="btn btn-lg" (click)="addNewEmployee()">
+            <span>Додади</span>
+        </a>
+    </div>
+</div>
+
+<div class="row ml-5 mr-5 mt-1 justify-content-center">
+    <div class="col-12">
+        <h3>Преглед на вработени</h3>
+    </div>
+    <div class="col-12">
+      <table class="table">
+        <thead id="test">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Име</th>
+            <th scope="col">Презиме</th>
+            <th scope="col">Емаил</th>
+            <th scope="col">Мобилен</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="getEmpFromTable()">
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+          <tr (click)="getEmpFromTable()"> 
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@mdo</td>
+          </tr>
+          <tr (click)="getEmpFromTable()">
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

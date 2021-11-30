@@ -1,0 +1,51 @@
+<div class="row m-5 justify-content-center">
+    <div class="col-12 mb-4">
+        <h3>Статистика</h3>
+        <mat-divider></mat-divider>
+    </div>
+    <div class="col-4">
+        <mat-card class="example-card">
+            <mat-card-title-group>
+              <mat-card-subtitle>Порачки за достава</mat-card-subtitle>
+              <img src="../../../assets/statistics_icon/delivery.png" >
+            </mat-card-title-group>
+            <mat-card-content>
+              190
+            </mat-card-content>
+          </mat-card>
+    </div>
+    <div class="col-4">
+        <mat-card class="example-card">
+            <mat-card-title-group>
+              <mat-card-title></mat-card-title>
+              <mat-card-subtitle>Вкупно порачки</mat-card-subtitle>
+              <img src="../../../assets/statistics_icon/orders.png" >
+            </mat-card-title-group>
+            <mat-card-content>
+                423
+            </mat-card-content>
+          </mat-card>
+    </div>
+    <div class="col-4">
+        <mat-card class="example-card">
+            <mat-card-title-group>
+              <mat-card-subtitle>Промет</mat-card-subtitle>
+              <img src="../../../assets/statistics_icon/total.png" >
+            </mat-card-title-group>
+            <mat-card-content>
+              45,325 денари
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>
+<div class="row justify-content-center m-5">
+  <div class="col-12">
+    <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'>
+      <e-series-collection>
+          <e-series [dataSource]='dataManager' type='Column' [query]='query' xName='CustomerID' yName='Freight' name='Sales'></e-series>
+      </e-series-collection>
+    </ejs-chart>
+  </div>
+</div>
+
+<button (click)="fullScreen()"></button> 

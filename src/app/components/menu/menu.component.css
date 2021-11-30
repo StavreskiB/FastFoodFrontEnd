@@ -1,0 +1,41 @@
+/* .mainClass{
+    background-color: #020D1D !important;
+    height: 581px !important;
+    color:white;
+} */
+
+.w-15{
+    width: 15% !important;
+}
+
+.w-85{
+    width: 85% !important;
+    background-color: #11223b !important;
+}
+
+tr{
+    height: 48px;
+    border: 1px solid !important;
+    border-color: #020D1D !important;
+}
+
+tr :hover{
+    cursor:pointer;
+}
+
+.tehnical{
+    background-color: #06080a!important;
+}
+
+.second{
+    background-color: #ed6f0c!important;
+}
+
+.third{
+    background-color: #1e8318!important;
+}
+
+.last {
+    background-color: #c92020!important;
+}
+

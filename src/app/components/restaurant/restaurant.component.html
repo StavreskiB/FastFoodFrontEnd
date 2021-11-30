@@ -1,0 +1,344 @@
+
+<div class="row justify-content-center text-white" id="middRow">
+    <div class="col-1 text-center text-white tables ml-3" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-1 text-center text-white tables" style="align-self: center;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">01</h2>
+    </div>
+    <div class="col-2 text-center align-self-center" style="align-self: center;">
+      <button class="btn text-white" id="buttons">Нова маса</button>
+    </div>
+</div>
+<div class="row" style="position: fixed; width: 100% !important;">
+  <div class="col-12" style="width: 100% !important;text-align: -webkit-right;">
+ <button id="bill" style="position: fixed;" (click)="drawer.toggle()">Сметка</button> 
+</div>  
+</div>
+<div class="row justify-content-center" id="bottomRow">
+    <div class="col-5 text-center mt-2 orders bg-white" style="height: 95%;">
+        <div class="row w-100 justify-content-center mt-1">
+            <div class="col-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>Име на порачка</mat-label>
+                    <input matInput (focus)="myFocusVar = true">
+                </mat-form-field>
+            </div>
+            <div class="col-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>Опис</mat-label>
+                    <input matInput (focus)="myFocusVar = true">
+                </mat-form-field>
+            </div>
+            <div class="col-1" style="align-self: center;">
+                <mat-label class="mr-5">Достава</mat-label>
+                <mat-slide-toggle class="ml-2">Достава</mat-slide-toggle>
+            </div>
+            <div class="col-10 mt-2">
+                <div class="content" role="main">
+                    <div class="card">
+                      <div class="form-group">
+                        <input type="email" (focus)="myFocusVar = true" class="form-control" id="search-text" aria-describedby="search-text" 
+                          [(ngModel)]="searchText" (keyup.enter)="search()" (keydown)="onKeyDown($event)" placeholder="Enter text to search" autofocus>
+                        </div>
+                      <ul class="list-group list-group-flush" *ngIf="showFiller" style="overflow-y: auto; height: 150px;">
+                        <li class="list-group-item" *ngFor="let c of characters | appFilter: searchText" (click)=function(c)>
+                          <b>{{c}}</b>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-6 mt-2" *ngIf="showForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Продукт</mat-label>
+                    <input matInput (focus)="myFocusVar = true">
+                </mat-form-field>
+            </div>
+            <div class="col-6 mt-2" *ngIf="showForm">
+                <mat-form-field appearance="fill">
+                    <mat-label (focus)="myFocusVar = true">Количина</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-3 mt-2" *ngIf="showForm">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Кечап
+                    </label>
+                  </div>
+            </div>
+            <div class="col-3 mt-2" *ngIf="showForm">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                    <label class="form-check-label" for="defaultCheck2">
+                        Мајонез
+                    </label>
+                  </div>
+            </div>
+            <div class="col-3 mt-2" *ngIf="showForm">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                    <label class="form-check-label" for="defaultCheck3">
+                      Кечап
+                    </label>
+                  </div>
+            </div>
+            <div class="col-3 mt-2" *ngIf="showForm">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                    <label class="form-check-label" for="defaultCheck4">
+                      Мајонез
+                    </label>
+                  </div>
+            </div>
+            <div class="col-9 mt-4" *ngIf="showForm">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Забелешка</mat-label>
+                    <input matInput (focus)="myFocusVar = false">
+                </mat-form-field>
+            </div>
+            <div class="col-2 mt-4 text-right" style="align-self: center;" *ngIf="showForm">
+                <button class="btn text-white mr-4" id="buttons">Додади</button>
+            </div>
+            <!-- <button (click)="check()"> prover </button> -->
+        </div>      
+    </div>
+    <div class="col-6 text-center mt-2 orders ml-5 bg-white table-responsive" style="overflow-y: auto; height: 95%;"> 
+        <!-- <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Кока кола</td>
+                <td>1</td>
+                <td>40 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Кока кола</td>
+                <td>1</td>
+                <td>40 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Кока кола</td>
+                <td>1</td>
+                <td>40 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Кока кола</td>
+                <td>1</td>
+                <td>40 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Кока кола</td>
+                <td>1</td>
+                <td>40 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Швепс</td>
+                <td>2</td>
+                <td>100 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Врап</td>
+                <td>1</td>
+                <td>80 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Помфрит</td>
+                <td>3</td>
+                <td>60 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Хамбургер</td>
+                <td>2</td>
+                <td>160 денари</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Тост</td>
+                <td>1</td>
+                <td>80 денари</td>
+              </tr>
+              <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td><b>Сметка</b></td>
+                <td><b>750 денари</b></td>
+              </tr>
+              <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td><button class="btn text-white" id="buttons">Принт</button></td>
+              </tr>
+            </tbody>
+        </table> -->
+          <mat-drawer-container class="example-container h-100" autosize>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Продукт</th>
+                    <th>Количина</th>
+                    <th>Додатоци</th>
+                    <th>Коментар</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr class="lastTr">
+                  <th scope="row"></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><button class="btn text-white" id="buttons">Маркица</button></td>
+                </tr>
+              </tbody>
+          </table>
+          <mat-drawer #drawer class="example-sidenav w-75" mode="side" position="end">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Кока кола</td>
+                  <td>1</td>
+                  <td>40 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Швепс</td>
+                  <td>2</td>
+                  <td>100 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Врап</td>
+                  <td>1</td>
+                  <td>80 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Помфрит</td>
+                  <td>3</td>
+                  <td>60 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Хамбургер</td>
+                  <td>2</td>
+                  <td>160 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>Тост</td>
+                  <td>1</td>
+                  <td>80 денари</td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                  <td><b>Сметка</b></td>
+                  <td><b>750 денари</b></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td><button class="btn text-white" id="buttons"  (click)="drawer.toggle()">Репрезентација</button></td>
+                  <td><button class="btn text-white" id="buttons"  (click)="drawer.toggle()">Фискална</button></td>
+                  <td><button class="btn text-white" id="buttons"  (click)="drawer.toggle()">ПОС</button></td>
+                </tr>
+              </tbody>
+          </table>
+          </mat-drawer>
+        </mat-drawer-container>
+      </div>
+</div>

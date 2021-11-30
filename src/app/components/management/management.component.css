@@ -1,0 +1,34 @@
+.custom-3{
+    border:3px solid;
+    flex: 0 0 32.3%;
+    max-width: 32.3%;
+    border-radius: 7px;
+}
+
+.custom-3:hover{
+    cursor: pointer;
+}
+
+.tehnical{
+    background-color: #06080a!important;
+}
+
+.second{
+    background-color: #ed6f0c!important;
+}
+
+.third{
+    background-color: #1e8318!important;
+}
+
+.last {
+    background-color: #c92020!important;
+}
+
+.h-8{
+    height: 8% !important;
+}
+
+.h-17 {
+    height: 17% !important;
+}

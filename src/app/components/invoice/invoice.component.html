@@ -1,0 +1,180 @@
+<div class="row ml-5 mr-5 mt-5 justify-content-center">
+  <div class="col-3">
+    <h3 style="margin: 0px !important;align-self: center !important;">Додади нова фактура</h3>
+  </div>
+  <div class="col-1">
+    <a class="btn btn-lg" (click)="showNewInvoice()">
+      <span>+</span>
+    </a>
+  </div>
+  <div class="col-8"></div>
+  <div class="col-12">
+    <mat-divider class="mt-3"></mat-divider>
+  </div>
+</div>
+
+<div class="row ml-5 mr-5 justify-content-center" *ngIf="showNewInv">
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Фирма</mat-label>
+        <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Број на фактура</mat-label>
+        <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field  class="w-100" appearance="fill">
+      <mat-label>Датум на издавање</mat-label>
+      <input matInput [matDatepicker]="issued">
+      <mat-datepicker-toggle matSuffix [for]="issued"></mat-datepicker-toggle>
+      <mat-datepicker #issued></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Датум на плаќање</mat-label>
+      <input matInput [matDatepicker]="dateforpayment">
+      <mat-datepicker-toggle matSuffix [for]="dateforpayment"></mat-datepicker-toggle>
+      <mat-datepicker #dateforpayment></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Износ</mat-label>
+        <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Статус на фактура</mat-label>
+      <select matNativeControl required>
+        <option value="platena">Платена</option>
+        <option value="neplatena">Неплатена</option>
+      </select>
+    </mat-form-field>
+  </div>
+  <div class="col-6 text-right">
+    <a class="btn btn-lg" (click)="showProducts()">
+        <span>Додади</span>
+    </a>
+  </div>
+</div>
+<div class="row ml-5 mr-5 justify-content-center" *ngIf="showProd">
+  <div class="col-12">
+    <h3>Продукти</h3>
+  </div>
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Продукт</mat-label>
+      <select matNativeControl required>
+        <option value="platena">Кока кола</option>
+        <option value="neplatena">Швепс</option>
+      </select>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Количина</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Цена</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="col-1" style="align-self: center;">
+    <a class="btn btn-lg">
+      <span>+</span>
+    </a>
+  </div>
+  <div class="col-9">
+    <table class="table">
+      <thead id="test">
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Продукт</th>
+          <th scope="col">Количина</th>
+          <th scope="col">Цена</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <th scope="row">1</th>
+          <td>Кока кола</td>
+          <td>5</td>
+          <td>13</td>
+        </tr>
+        <tr class="text-center"> 
+          <th scope="row">1</th>
+          <td>Кока кола</td>
+          <td>5</td>
+          <td>13</td>
+        </tr>
+        <tr class="text-center">
+          <th scope="row">1</th>
+          <td>Кока кола</td>
+          <td>5</td>
+          <td>13</td>
+        </tr>
+        <tr class="text-right">
+          <th scope="row"></th>
+          <td></td>
+          <th>Вкупно</th>
+          <th>4968,16 денари</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row ml-5 mr-5 mb-5 mt-3 justify-content-center">
+      <div class="col-12">
+        <h3>Преглед на фактури</h3>
+      </div>
+      <table class="table">
+        <thead id="test">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Фирма</th>
+            <th scope="col">Датум на издавање</th>
+            <th scope="col">Датум на доспевање</th>
+            <th scope="col">Сума</th>
+            <th scope="col">Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="getInvFromTable()">
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+          <tr (click)="getInvFromTable()"> 
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+          <tr (click)="getInvFromTable()">
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+

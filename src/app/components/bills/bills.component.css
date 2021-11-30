@@ -1,0 +1,9 @@
+thead{
+    color: white !important;
+    background-color: #11223b !important;
+}
+
+tbody tr:hover{
+    cursor:pointer;
+    background-color: lightgrey !important;
+}

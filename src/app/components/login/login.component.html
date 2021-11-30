@@ -1,1 +1,18 @@
-<p>login works!</p>
+
+<div id="backg" class="row justify-content-center">
+        <div class="col-3 text-center" style="align-self: center;"> 
+            <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Корисничко име</mat-label>
+                <input matInput [formControl]="user.controls['username']" required>
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Лозинка</mat-label>
+                <input matInput [formControl]="user.controls['password']" required>
+            </mat-form-field>
+            <div class="col-12 text-right">
+                <a class="btn btn-lg" (click)="login()">
+                    <span>Најави се</span> 
+                </a>   
+              </div> 
+        </div> 
+</div>
