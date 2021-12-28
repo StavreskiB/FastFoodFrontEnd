@@ -1,4 +1,6 @@
 export class TokenRes {
     jwt: any;
-    clientEmail : any;
+    userEmail : any;
+    userType : any;
+    companyId : any;
 }

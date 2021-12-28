@@ -1,1 +1,12 @@
-<p>home works!</p>
+<app-header *ngIf="worker"></app-header>
+<router-outlet *ngIf="worker"></router-outlet>
+
+
+
+<app-header *ngIf="manager"></app-header>   
+<div *ngIf="manager" class="row m-0 p-0 justify-content-center">
+    <div *ngIf="manager" class="col-3 m-0 p-0"><app-menu></app-menu></div>
+    <div *ngIf="manager" class="col-9 m-0 p-0"><router-outlet></router-outlet></div>
+</div>
+
+

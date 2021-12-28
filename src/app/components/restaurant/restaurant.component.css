@@ -9,6 +9,8 @@
     cursor: pointer;
 }
 
+
+
 /* #buttons{
     border-radius: 25px !important;
     background-color: #FF9E65 ;
@@ -114,9 +116,14 @@ thead{
     background-color: white !important;
 }
 
-tbody tr:hover{
+tbody .trhover:hover{
     cursor:pointer;
     background-color: lightgrey !important;
+}
+
+
+img:hover{
+    cursor:pointer;
 }
 
 /deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
@@ -126,3 +133,126 @@ tbody tr:hover{
 /deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
     background-color: #FF9E65;
 }
+
+.activeSearchLink{
+    background-color: #1F2A47;
+    color: white;
+  }
+
+.change1{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF1{
+    border-bottom: 3px solid #fc782c;
+}
+.change2{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF2{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change3{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF3{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change4{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF4{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change5{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF5{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change6{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF6{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change7{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF7{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change8{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF8{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change9{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF9{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change10{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF10{
+    border-bottom: 3px solid #fc782c;
+}
+
+.change11{
+    border-bottom: 3px solid #fc782c;
+    background-color: #FF9E65;
+}
+
+.changeF11{
+    border-bottom: 3px solid #fc782c;
+}
+
+
+.hov:hover{
+    cursor: default !important;
+}
+
+span:hover{
+    cursor: default !important;
+}
+
+
+
+@media print {
+    #name {
+       display: block !important;
+    }
+    .lastTr{
+        display: none !important;
+    }
+ }

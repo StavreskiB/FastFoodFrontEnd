@@ -7,7 +7,7 @@
             </mat-form-field>
             <mat-form-field class="w-100" appearance="fill">
                 <mat-label>Лозинка</mat-label>
-                <input matInput [formControl]="user.controls['password']" required>
+                <input matInput type="password" [formControl]="user.controls['password']" required>
             </mat-form-field>
             <div class="col-12 text-right">
                 <a class="btn btn-lg" (click)="login()">

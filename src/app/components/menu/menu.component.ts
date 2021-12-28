@@ -14,48 +14,48 @@ export class MenuComponent implements OnInit {
   }
 
   getStat(){
-    this.router.navigateByUrl('/statistic');
+    this.router.navigateByUrl('/home/statistic');
   }
 
   getInv(){
-    this.router.navigateByUrl('/invoice');
+    this.router.navigateByUrl('/home/invoice');
   }
 
   getReport(){
-    this.router.navigateByUrl('/reports');
+    this.router.navigateByUrl('/home/reports');
   }
 
   getStock(){
-    this.router.navigateByUrl('/stocks');
+    this.router.navigateByUrl('/home/stocks');
 
   }
 
   getMenu(){
-    this.router.navigateByUrl('/restaurantmenu');
+    this.router.navigateByUrl('/home/restaurantmenu');
   }
 
   getNotification(){
-    this.router.navigateByUrl('/notifications');
+    this.router.navigateByUrl('/home/notifications');
   }
 
   getBills(){
-    this.router.navigateByUrl('/bills');
+    this.router.navigateByUrl('/home/bills');
   }
 
   getNorms(){
-    this.router.navigateByUrl('/norms');
+    this.router.navigateByUrl('/home/norms');
   }
 
   getEmp(){
-    this.router.navigateByUrl('/employee');
+    this.router.navigateByUrl('/home/employee');
   }
 
   getSettings(){
-    this.router.navigateByUrl('/settings');
+    this.router.navigateByUrl('/home/settings');
   }
-
+  
   logout(){
-    alert("logout");
+    this.router.navigateByUrl('/');
   }
 
 

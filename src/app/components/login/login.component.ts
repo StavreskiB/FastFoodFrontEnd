@@ -4,12 +4,11 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { LoginService } from 'src/app/services/login.service';
 import { TokenReq } from '../../models/tokenReq';
 import * as CryptoJS from 'crypto-js';
-import { ToastrService } from 'ngx-toastr';
 import { NotifyService } from 'src/app/services/notify.service';
 
 @Component({
   selector: 'app-login',  
-  templateUrl: './login.component.html',
+  templateUrl: './login.component.html',      
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit {
              private fb: FormBuilder, 
              private loginService : LoginService,
              private notify : NotifyService) {
-              this.user = fb.group({
+              this.user = this.fb.group({
                 'username': [''],
                 'password': [''],
               });
@@ -35,22 +34,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { 
     sessionStorage.removeItem("jwt");
     sessionStorage.removeItem("email");
+    sessionStorage.removeItem('userType');
+    sessionStorage.removeItem('companyId');
+    this.test();
   } 
-
-  // login(){           
-
-    
-
-  //     this.token = new Token();
-
-  //     this.token.email = "Stavreskibojan@gmail.com";
-  //     this.token.password = "32";
-
-  //     this.loginService.Login(this.token).subscribe(response => {
-  //         console.log("data: ", response)
-  //     });
-  //   //this.router.navigateByUrl('/');  
-  // }
 
   login() {  
     if (this.user.controls['username'].value == "" || this.user.controls['password'].value == "") {
@@ -62,24 +49,19 @@ export class LoginComponent implements OnInit {
           this.token.pasword = this.encryptedPassword; 
         
           this.loginService.Login(this.token).subscribe(data =>{
+            console.log(data);
             if(data != null && data != "" && data != []){
               console.log(data);
                 if(data.jwt != null && data.jwt != "" && data.jwt != []){
                   sessionStorage.setItem('jwt', data.jwt);
-                  sessionStorage.setItem('email', data.clientEmail);
-                  this.router.navigate(['/restaurant']);
-                  // this.loginService.checkForFirstLogin(data.clientEmail).subscribe(firsLogin =>{
-                  //   console.log(firsLogin);
-                  //   if(firsLogin === true){
-                      this.router.navigate(['/restaurant']);
-                  //   } else {
-                  //     //this.router.navigate(['/main/']); 
-                  //   }
-                  // })        
+                  sessionStorage.setItem('email', data.userEmail);
+                  sessionStorage.setItem('userType', data.userType);
+                  sessionStorage.setItem('companyId', data.companyId);
+                      this.router.navigate(['/home']);
                 }
                 else{
                 this.notify.showError("Грешка при најава", "");
-                }
+              }
             }else{
               this.notify.showError("Грешка при најава", "");
             }
@@ -88,6 +70,12 @@ export class LoginComponent implements OnInit {
      }
 
 
+     test(){
 
+     this.loginService.test().subscribe(data =>{
+      console.log(data);
+  
+     });
+    }
 
 }

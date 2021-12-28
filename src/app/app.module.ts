@@ -41,6 +41,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {NgxPrintModule} from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -83,7 +88,13 @@ import { HomeComponent } from './components/home/home.component';
     ToastrModule.forRoot(),
     MatDividerModule,
     ChartModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    NgxPrintModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [CategoryService, 

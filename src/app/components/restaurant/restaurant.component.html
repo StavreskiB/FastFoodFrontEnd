@@ -1,344 +1,206 @@
 
 <div class="row justify-content-center text-white" id="middRow">
-    <div class="col-1 text-center text-white tables ml-3" style="align-self: center;">
+    <div [ngClass]="{'change1': toggle1, 'changeF1' : toggleF1}" class="col-1 text-center text-white tables ml-3" style="align-self: center;" (click)="selectTable('Table', 1)" (click)="toggle1 = true; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = false;">
         <h5 class="m-0 p-0">Маса</h5>
         <h2 class="m-0 p-0 h1-font">01</h2>
     </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
+    <div [ngClass]="{'change2': toggle2, 'changeF2' : toggleF2}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTable('Table', 2)" (click)="toggle1 = false; toggle2= true; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = false;">
         <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">02</h2>
+    </div>
+    <div [ngClass]="{'change3': toggle3, 'changeF3' : toggleF3}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTable('Table', 3)" (click)="toggle1 = false; toggle2= false; toggle3 = true; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = false;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">03</h2>
+    </div>
+    <div [ngClass]="{'change4': toggle4, 'changeF4' : toggleF4}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTable('Table', 4)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = true; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = false;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">04</h2>
+    </div>
+    <div [ngClass]="{'change5': toggle5, 'changeF5' : toggleF5}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTable('Table', 5)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = true; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = false;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">05</h2>
+    </div>
+    <div [ngClass]="{'change6': toggle6, 'changeF6' : toggleF6}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTable('Table', 6)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = true; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = false;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">06</h2>
+    </div>
+    <div [ngClass]="{'change7': toggle7, 'changeF7' : toggleF7}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTable('Table', 7)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = true; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = false;">
+        <h5 class="m-0 p-0">Маса</h5>
+        <h2 class="m-0 p-0 h1-font">07</h2>
+    </div>
+    <div [ngClass]="{'change8': toggle8, 'changeF8' : toggleF8}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTable('Table', 8)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = true; toggle9 = false; toggle10=false; toggle11 = false;">
+      <h5 class="m-0 p-0">Маса</h5>
+      <h2 class="m-0 p-0 h1-font">08</h2>
+    </div>
+    <div [ngClass]="{'change9': toggle9, 'changeF9' : toggleF9}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTableDelivery('Delivery', 9)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = true; toggle10=false; toggle11 = false;">
+        <h5 class="m-0 p-0">Достава</h5> 
         <h2 class="m-0 p-0 h1-font">01</h2>
     </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
-        <h5 class="m-0 p-0">Маса</h5>
-        <h2 class="m-0 p-0 h1-font">01</h2>
+    <div [ngClass]="{'change10': toggle10, 'changeF10' : toggleF10}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTableDelivery('Delivery', 10)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=true; toggle11 = false;">
+        <h5 class="m-0 p-0">Достава</h5>
+        <h2 class="m-0 p-0 h1-font">02</h2>
     </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
-        <h5 class="m-0 p-0">Маса</h5>
-        <h2 class="m-0 p-0 h1-font">01</h2>
+    <div [ngClass]="{'change11': toggle11, 'changeF11' : toggleF11}" class="col-1 text-center text-white tables" style="align-self: center;" (click)="selectTableDelivery('Delivery', 11)" (click)="toggle1 = false; toggle2= false; toggle3 = false; toggle4 = false; toggle5 = false; toggle6 = false; toggle7 = false; toggle8 = false; toggle9 = false; toggle10=false; toggle11 = true;"> 
+      <h5 class="m-0 p-0">Достава</h5>
+      <h2 class="m-0 p-0 h1-font">03</h2>
     </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
-        <h5 class="m-0 p-0">Маса</h5>
-        <h2 class="m-0 p-0 h1-font">01</h2>
-    </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
-        <h5 class="m-0 p-0">Маса</h5>
-        <h2 class="m-0 p-0 h1-font">01</h2>
-    </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
-        <h5 class="m-0 p-0">Маса</h5>
-        <h2 class="m-0 p-0 h1-font">01</h2>
-    </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
-        <h5 class="m-0 p-0">Маса</h5>
-        <h2 class="m-0 p-0 h1-font">01</h2>
-    </div>
-    <div class="col-1 text-center text-white tables" style="align-self: center;">
-        <h5 class="m-0 p-0">Маса</h5>
-        <h2 class="m-0 p-0 h1-font">01</h2>
-    </div>
-    <div class="col-2 text-center align-self-center" style="align-self: center;">
-      <button class="btn text-white" id="buttons">Нова маса</button>
-    </div>
+
 </div>
 <div class="row" style="position: fixed; width: 100% !important;">
   <div class="col-12" style="width: 100% !important;text-align: -webkit-right;">
- <button id="bill" style="position: fixed;" (click)="drawer.toggle()">Сметка</button> 
-</div>  
+  </div>  
 </div>
 <div class="row justify-content-center" id="bottomRow">
     <div class="col-5 text-center mt-2 orders bg-white" style="height: 95%;">
-        <div class="row w-100 justify-content-center mt-1">
-            <div class="col-5">
-                <mat-form-field appearance="fill">
-                    <mat-label>Име на порачка</mat-label>
-                    <input matInput (focus)="myFocusVar = true">
-                </mat-form-field>
-            </div>
-            <div class="col-5">
-                <mat-form-field appearance="fill">
+        <div class="row w-100 justify-content-center">
+
+            <div class="col-11" *ngIf="showDescription">
+                <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Опис</mat-label>
-                    <input matInput (focus)="myFocusVar = true">
+                    <input matInput [formControl]="orderForm.controls['address']" required>
                 </mat-form-field>
             </div>
-            <div class="col-1" style="align-self: center;">
-                <mat-label class="mr-5">Достава</mat-label>
-                <mat-slide-toggle class="ml-2">Достава</mat-slide-toggle>
-            </div>
-            <div class="col-10 mt-2">
-                <div class="content" role="main">
-                    <div class="card">
-                      <div class="form-group">
-                        <input type="email" (focus)="myFocusVar = true" class="form-control" id="search-text" aria-describedby="search-text" 
-                          [(ngModel)]="searchText" (keyup.enter)="search()" (keydown)="onKeyDown($event)" placeholder="Enter text to search" autofocus>
-                        </div>
-                      <ul class="list-group list-group-flush" *ngIf="showFiller" style="overflow-y: auto; height: 150px;">
-                        <li class="list-group-item" *ngFor="let c of characters | appFilter: searchText" (click)=function(c)>
-                          <b>{{c}}</b>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6 mt-2" *ngIf="showForm">
-                <mat-form-field appearance="fill">
-                    <mat-label>Продукт</mat-label>
-                    <input matInput (focus)="myFocusVar = true">
+            
+            <div class="col-7" *ngIf="showLeftTable">
+              <form class="example-form">
+                <mat-form-field class="example-full-width w-100" appearance="fill">
+                  <input type="text"
+                         #src
+                         placeholder="Pick one"
+                         aria-label="Number"
+                         matInput
+                         [formControl]="myControl"
+                         [matAutocomplete]="auto"
+                         required
+                         placeholder="Пребарај..."
+                        >
+                  <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onChangeOption($event)'>
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)=getFromSearch(option)>
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
                 </mat-form-field>
+              </form>
             </div>
-            <div class="col-6 mt-2" *ngIf="showForm">
-                <mat-form-field appearance="fill">
-                    <mat-label (focus)="myFocusVar = true">Количина</mat-label>
-                    <input matInput>
-                </mat-form-field>
+            <div class="col-4" *ngIf="showLeftTable">
+              <mat-form-field appearance="fill" class="w-100">
+                  <mat-label >Количина</mat-label>
+                  <input (keydown.enter)='addForMark()' #quantity matInput [formControl]="orderForm.controls['quantity']" required>
+              </mat-form-field>
             </div>
-            <div class="col-3 mt-2" *ngIf="showForm">
+            <div class="col-1"  style="align-self: center;" *ngIf="showLeftTable">
+              <img (click)="addForMark()" src="../../../assets/restIcon/plus.png">
+            </div>
+            <div class="col-3 mt-1" *ngIf="showLeftTable">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" checked (change)="onCheck('K')" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                         Кечап
                     </label>
                   </div>
             </div>
-            <div class="col-3 mt-2" *ngIf="showForm">
+            <div class="col-3 mt-1" *ngIf="showLeftTable">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                    <input class="form-check-input" type="checkbox" checked (change)="onCheck('M')" id="defaultCheck2">
                     <label class="form-check-label" for="defaultCheck2">
                         Мајонез
                     </label>
                   </div>
             </div>
-            <div class="col-3 mt-2" *ngIf="showForm">
+            <div class="col-3 mt-1" *ngIf="showLeftTable">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                    <input class="form-check-input" type="checkbox" checked (change)="onCheck('Kr')" id="defaultCheck3">
                     <label class="form-check-label" for="defaultCheck3">
-                      Кечап
+                      Кромид
                     </label>
                   </div>
             </div>
-            <div class="col-3 mt-2" *ngIf="showForm">
+            <div class="col-3 mt-1" *ngIf="showLeftTable">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-                    <label class="form-check-label" for="defaultCheck4">
-                      Мајонез
+                    <input class="form-check-input" type="checkbox" checked (change)="onCheck('S')" id="defaultCheck4">
+                    <label class="form-check-label" for="defaultCheck4" >
+                      Сос
                     </label>
                   </div>
             </div>
-            <div class="col-9 mt-4" *ngIf="showForm">
-                <mat-form-field class="w-100" appearance="fill">
-                    <mat-label>Забелешка</mat-label>
-                    <input matInput (focus)="myFocusVar = false">
-                </mat-form-field>
+
+            <div id="print-section" class="col-12 mt-3 table-responsive" *ngIf="showForMark" style="overflow: auto;height: 377px !important;">
+                <table class="table">
+                  <tbody>
+                    <tr *ngFor="let product of productForMarkList; let i = index" class="trhover border-1">
+                      <td>{{product.idProduct.name}}</td>
+                      <td>{{product.quantity}}</td>
+                      <td>{{product.addons}}</td>
+                      <td class="noprint">
+                        <img (click)="deleteMark(product.idBills)" src="../../../assets/restIcon/icon1.png"> 
+                      </td>
+                    </tr>
+                    <tr class="lastTr">
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td class="hov">
+
+                        <button class="btn"
+                        (click)="printMark()"
+                        [printStyle]="{ td : {border : '1px dotted black',  padding : '3px'}, img : { display: 'none' }, button : { display: 'none' }, span : { display: 'none' }  }"
+                         printSectionId="print-section" 
+                         ngxPrint>Принт</button>
+                         
+                         <!-- <img class="noprint" src="../../../assets/restIcon/icon2.png"><br/> <span class="mt-5">Принт</span></td> -->
+                      </tr>
+                  </tbody>
+              </table>
             </div>
-            <div class="col-2 mt-4 text-right" style="align-self: center;" *ngIf="showForm">
-                <button class="btn text-white mr-4" id="buttons">Додади</button>
-            </div>
-            <!-- <button (click)="check()"> prover </button> -->
         </div>      
     </div>
-    <div class="col-6 text-center mt-2 orders ml-5 bg-white table-responsive" style="overflow-y: auto; height: 95%;"> 
-        <!-- <table class="table">
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Кока кола</td>
-                <td>1</td>
-                <td>40 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Кока кола</td>
-                <td>1</td>
-                <td>40 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Кока кола</td>
-                <td>1</td>
-                <td>40 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Кока кола</td>
-                <td>1</td>
-                <td>40 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Кока кола</td>
-                <td>1</td>
-                <td>40 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Швепс</td>
-                <td>2</td>
-                <td>100 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Врап</td>
-                <td>1</td>
-                <td>80 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Помфрит</td>
-                <td>3</td>
-                <td>60 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Хамбургер</td>
-                <td>2</td>
-                <td>160 денари</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Тост</td>
-                <td>1</td>
-                <td>80 денари</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td><b>Сметка</b></td>
-                <td><b>750 денари</b></td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td><button class="btn text-white" id="buttons">Принт</button></td>
-              </tr>
-            </tbody>
-        </table> -->
-          <mat-drawer-container class="example-container h-100" autosize>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Продукт</th>
-                    <th>Количина</th>
-                    <th>Додатоци</th>
-                    <th>Коментар</th>
-                  </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr class="lastTr">
-                  <th scope="row"></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><button class="btn text-white" id="buttons">Маркица</button></td>
-                </tr>
-              </tbody>
-          </table>
-          <mat-drawer #drawer class="example-sidenav w-75" mode="side" position="end">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Кока кола</td>
-                  <td>1</td>
-                  <td>40 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Швепс</td>
-                  <td>2</td>
-                  <td>100 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Врап</td>
-                  <td>1</td>
-                  <td>80 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>Помфрит</td>
-                  <td>3</td>
-                  <td>60 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>Хамбургер</td>
-                  <td>2</td>
-                  <td>160 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row">6</th>
-                  <td>Тост</td>
-                  <td>1</td>
-                  <td>80 денари</td>
-                </tr>
-                <tr>
-                  <th scope="row"></th>
-                  <td></td>
-                  <td><b>Сметка</b></td>
-                  <td><b>750 денари</b></td>
-                </tr>
-                <tr>
-                  <th scope="row"></th>
-                  <td><button class="btn text-white" id="buttons"  (click)="drawer.toggle()">Репрезентација</button></td>
-                  <td><button class="btn text-white" id="buttons"  (click)="drawer.toggle()">Фискална</button></td>
-                  <td><button class="btn text-white" id="buttons"  (click)="drawer.toggle()">ПОС</button></td>
-                </tr>
-              </tbody>
-          </table>
-          </mat-drawer>
-        </mat-drawer-container>
-      </div>
+    <div id="printBill" class="col-6 text-center mt-2 orders ml-5 bg-white table-responsive" style="overflow-y: auto; height: 95%;"> 
+      <table class="table d-none" id="name" *ngIf="showBillsItem">
+        <tbody>
+          <tr>
+            <td><b>Mount Burger</b></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table class="table" *ngIf="showBillsItem">
+        <tbody>
+          <tr *ngFor="let product of itemBillsList; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{product.idProduct.name}} </td>
+            <td>{{product.quantity}} * {{product.idProduct.price}} = {{product.quantity * product.idProduct.price }}</td>
+            <!-- <td>{{product.quantity * product.idProduct.price }} Ден</td> -->
+          </tr>
+          <tr class="trhover">
+            <th scope="row"></th>
+            <!-- <td></td> -->
+            <td><b>Вкупно</b></td>
+            <td><b>{{totalPrice}} денари</b></td>
+          </tr>
+          <tr class="lastTr">
+            <th scope="row"></th>
+            <td></td>
+            <!-- <td  (click)="printBill()" >
+              <img src="../../../assets/restIcon/icon3.png"> <br/> <span class="mt-5">Принт</span>
+          </td> -->
+          <td>
+            <button class="btn"
+                        (click)="printBill()"
+                        [printStyle]="{ td : {border : '1px solid black', padding : '5px'}, img : { display: 'none' }, th : {display: 'none'}, button : { display: 'none' }, span : { display: 'none' }  }"
+                         printSectionId="printBill" 
+                         ngxPrint>Сметка</button>
+            </td>
+          
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table class="table" *ngIf="showBillsItem">
+        <tbody>
+          <tr style="float: left;">
+            {{address}}
+          </tr>
+        </tbody>
+      </table>
+    </div> 
 </div>

@@ -17,30 +17,30 @@
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Име</mat-label>
-            <input matInput>
+            <input matInput required [formControl]="settingsForm.controls['name']">
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Презиме</mat-label>
-            <input matInput>
+            <input matInput required [formControl]="settingsForm.controls['surname']">
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Емаил</mat-label>
-            <input matInput>
+            <input matInput required [formControl]="settingsForm.controls['email']">
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Мобилен</mat-label>
-            <input matInput>
+            <input matInput required [formControl]="settingsForm.controls['mobile']">
         </mat-form-field>
     </div>
     <div class="col-12 text-right">
-        <a class="btn btn-lg" (click)="succ()">
-          <span>Зачувај</span>
+        <a class="btn btn-lg" (click)="savePersonalInfo()">
+          <span>Зачувај лични податоци</span>
         </a>
     </div>
 </div>
@@ -54,37 +54,37 @@
 <div class="row ml-5 mr-5 mt-3">
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Тип на продукт</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Парче</option>
-            </select>
+            <mat-label>Парче</mat-label>
+            <mat-select required [(value)]="selectedPiece">
+              <mat-option value="Парче" selected>Парче</mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Лимит</mat-label>
-            <input matInput>
+            <input matInput required [formControl]="settingsForm.controls['limitPiece']">
     </mat-form-field>
     </div>  
 </div>
 <div class="row ml-5 mr-5 ">
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Тип на продукт</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Грамажа</option>
-            </select>
+            <mat-label>Грамажа</mat-label>
+            <mat-select required [(value)]="selectedGr">
+              <mat-option value="Грамажа" selected>Грамажа</mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Лимит</mat-label>
-            <input matInput>
+            <input matInput required [formControl]="settingsForm.controls['limitGr']">
         </mat-form-field>
     </div>  
     <div class="col-4 text-right">
-        <a class="btn btn-lg" (click)="succ()">
-          <span>Зачувај</span>
+        <a class="btn btn-lg" (click)="saveLimit()">
+          <span>Зачувај лимит</span>
         </a>
     </div>
 </div>
@@ -95,51 +95,39 @@
     </div>
 </div>
 <div class="row ml-5 mr-5 mt-3">
-    <div class="col-3">
+    <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Смена</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Прва</option>
-            </select>
+            <mat-label>Прва</mat-label>
+            <mat-select required [(value)]="selectedFirst">
+              <mat-option value="Прва" selected>Прва</mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
-    <div class="col-3">
+    <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Од</mat-label>
-            <input matInput type="time">
-        </mat-form-field>
-    </div>
-    <div class="col-3">
-        <mat-form-field class="w-100" appearance="fill">
-            <mat-label>До</mat-label>
-            <input matInput type="time">
+            <input matInput type="time" required [formControl]="settingsForm.controls['firstShiftStart']">
         </mat-form-field>
     </div>
 </div>
 <div class="row ml-5 mr-5 ">
-    <div class="col-3">
-        <mat-form-field class="w-100" style="padding:0px !important" appearance="fill">
-            <mat-label>Тип на продукт</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Втора</option>
-            </select>
+    <div class="col-4">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Втора</mat-label>
+            <mat-select required [(value)]="selectedSecond">
+              <mat-option value="Втора" selected>Втора</mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
-    <div class="col-3">
+    <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Од</mat-label>
-            <input matInput type="time">
+            <input matInput type="time" required [formControl]="settingsForm.controls['secondShiftStart']">
         </mat-form-field>
     </div>
-    <div class="col-3">
-        <mat-form-field class="w-100" appearance="fill">
-            <mat-label>До</mat-label>
-            <input matInput type="time" format="HH:mm">
-        </mat-form-field>
-    </div>
-    <div class="col-3 text-right">
-        <a class="btn btn-lg" (click)="succ()">
-          <span>Зачувај</span>
+    <div class="col-4 text-right">
+        <a class="btn btn-lg" (click)="saveShift()">
+          <span>Зачувај почеток на смени</span>
         </a>
     </div>
 </div>

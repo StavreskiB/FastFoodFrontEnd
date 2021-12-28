@@ -17,37 +17,39 @@
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill" *ngIf="!newProduct">
             <mat-label>Продукт</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Кока кола</option>
-              <option value="neplatena">Швепс</option>
-              <option value="neplatena">Пепси</option>
-            </select>
+            <mat-select [formControl]="productForm.controls['product']" required>
+                <mat-option *ngFor="let result of stockList"  [value]="result.idProduct.idProduct" (click)="onChangeProduct(result.idProduct.idProduct)">{{result.idProduct.name}}</mat-option>
+            </mat-select>
         </mat-form-field>
         <mat-form-field class="w-100" appearance="fill" *ngIf="newProduct">
             <mat-label>Продукт</mat-label>
-            <input matInput>
+            <input matInput [formControl]="productForm.controls['newProduct']" required>
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Тип на продукт</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Парче</option>
-              <option value="neplatena">Грамажа</option>
-            </select>
+            <mat-select  [formControl]="productForm.controls['type']" required [disabled]="disableSelect">
+                <mat-option *ngFor="let result of productTypeList"  [value]="result.idProductType">{{result.name}}</mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
     <div class="col-3">
       <mat-form-field class="w-100" appearance="fill">
           <mat-label>Количина</mat-label>
-          <input matInput>
+          <input matInput [formControl]="productForm.controls['quantity']" required>
       </mat-form-field>
     </div>
-    <div class="col-3 text-center">
-      <a class="btn btn-lg">
-          <span>Додади</span>
+    <div class="col-3 text-center" *ngIf="!newProduct">
+      <a class="btn btn-lg" (click)="addInStock()">
+          <span>Додади во залиха</span>
       </a>
     </div>
+    <div class="col-3 text-center" *ngIf="newProduct">
+        <a class="btn btn-lg" (click)="addNewProduct()">
+            <span>Додади нов продукт</span>
+        </a>
+      </div>
 </div>
 <div class="row ml-5 mr-5 mt-4 justify-content-center">
     <div class="col-12 mt-2">
@@ -60,35 +62,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>5</td>
+                <tr *ngFor="let result of stockList;let i = index" class="text-center" (click)="getStockFromTable(result.idStock)">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{result.idProduct.name}}</td>
+                    <td>{{result.quantity}}</td>
                 </tr>
             </tbody>
         </table>

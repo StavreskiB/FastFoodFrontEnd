@@ -3,7 +3,7 @@
     <h3 style="margin: 0px !important;align-self: center !important;">Додади нова фактура</h3>
   </div>
   <div class="col-1">
-    <a class="btn btn-lg" (click)="showNewInvoice()">
+    <a class="btn btn-lg" (click)="newInvoice()">
       <span>+</span>
     </a>
   </div>
@@ -13,23 +13,23 @@
   </div>
 </div>
 
-<div class="row ml-5 mr-5 justify-content-center" *ngIf="showNewInv">
+<div class="row ml-5 mr-5 justify-content-center" *ngIf="newInvoiceFlag">
   <div class="col-3">
     <mat-form-field class="w-100" appearance="fill">
         <mat-label>Фирма</mat-label>
-        <input matInput>
+        <input matInput [formControl]="invoiceForm.controls['company']" required [readonly]="disableSelect">
     </mat-form-field>
   </div>
   <div class="col-3">
     <mat-form-field class="w-100" appearance="fill">
         <mat-label>Број на фактура</mat-label>
-        <input matInput>
+        <input matInput [formControl]="invoiceForm.controls['invoiceNr']" required [readonly]="disableSelect">
     </mat-form-field>
   </div>
   <div class="col-3">
     <mat-form-field  class="w-100" appearance="fill">
       <mat-label>Датум на издавање</mat-label>
-      <input matInput [matDatepicker]="issued">
+      <input matInput [matDatepicker]="issued" [formControl]="invoiceForm.controls['dateIssued']" required [disabled]="disableSelect">
       <mat-datepicker-toggle matSuffix [for]="issued"></mat-datepicker-toggle>
       <mat-datepicker #issued></mat-datepicker>
     </mat-form-field>
@@ -37,7 +37,7 @@
   <div class="col-3">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Датум на плаќање</mat-label>
-      <input matInput [matDatepicker]="dateforpayment">
+      <input matInput [matDatepicker]="dateforpayment" [formControl]="invoiceForm.controls['deadline']" required [disabled]="disableSelect">
       <mat-datepicker-toggle matSuffix [for]="dateforpayment"></mat-datepicker-toggle>
       <mat-datepicker #dateforpayment></mat-datepicker>
     </mat-form-field>
@@ -45,57 +45,59 @@
   <div class="col-3">
     <mat-form-field class="w-100" appearance="fill">
         <mat-label>Износ</mat-label>
-        <input matInput>
+        <input matInput [formControl]="invoiceForm.controls['price']" required [readonly]="disableSelect">
     </mat-form-field>
   </div>
   <div class="col-3">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Статус на фактура</mat-label>
-      <select matNativeControl required>
-        <option value="platena">Платена</option>
-        <option value="neplatena">Неплатена</option>
-      </select>
+      <mat-select required [formControl]="invoiceForm.controls['status']" [disabled]="disableSelect">
+        <mat-option value="Платена">Платена</mat-option>
+        <mat-option value="Неплатена">Неплатена</mat-option>
+     </mat-select>
     </mat-form-field>
   </div>
   <div class="col-6 text-right">
-    <a class="btn btn-lg" (click)="showProducts()">
-        <span>Додади</span>
+    <a class="btn btn-lg"  *ngIf="saveNewInvoiceBtn" (click)="saveNewInvoice()">
+        <span>Зачувај</span>
     </a>
+    <a class="btn btn-lg"  *ngIf="!saveNewInvoiceBtn" (click)="updateInvoiceStatus()">
+      <span>Промени во платена</span>
+  </a>
   </div>
 </div>
-<div class="row ml-5 mr-5 justify-content-center" *ngIf="showProd">
-  <div class="col-12">
-    <h3>Продукти</h3>
+<div class="row ml-5 mr-5 justify-content-center" *ngIf="showItems">
+  <div class="col-12" *ngIf="showItemsAdd">
+    <h3>Додади продукти</h3>
   </div>
-  <div class="col-3">
+  <div class="col-3" *ngIf="showItemsAdd">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Продукт</mat-label>
-      <select matNativeControl required>
-        <option value="platena">Кока кола</option>
-        <option value="neplatena">Швепс</option>
-      </select>
+      <mat-select required [formControl]="invoiceItemForm.controls['product']">
+        <mat-option *ngFor="let result of allStockList" [value]="result.idProduct.idProduct">{{result.idProduct.name}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
-  <div class="col-3">
+  <div class="col-3" *ngIf="showItemsAdd">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Количина</mat-label>
-      <input matInput>
+      <input matInput [formControl]="invoiceItemForm.controls['quantity']" required>
     </mat-form-field>
   </div>
-  <div class="col-3">
+  <div class="col-3" *ngIf="showItemsAdd">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Цена</mat-label>
-      <input matInput>
+      <input matInput [formControl]="invoiceItemForm.controls['price']" required>
     </mat-form-field>
   </div>
-  <div class="col-1" style="align-self: center;">
-    <a class="btn btn-lg">
+  <div class="col-1" style="align-self: center;" *ngIf="showItemsAdd">
+    <a class="btn btn-lg" (click)="add()">
       <span>+</span>
     </a>
   </div>
-  <div class="col-9">
+  <div class="col-10">
     <table class="table">
-      <thead id="test">
+      <thead>
         <tr class="text-center">
           <th scope="col">#</th>
           <th scope="col">Продукт</th>
@@ -104,29 +106,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="text-center">
-          <th scope="row">1</th>
-          <td>Кока кола</td>
-          <td>5</td>
-          <td>13</td>
-        </tr>
-        <tr class="text-center"> 
-          <th scope="row">1</th>
-          <td>Кока кола</td>
-          <td>5</td>
-          <td>13</td>
-        </tr>
-        <tr class="text-center">
-          <th scope="row">1</th>
-          <td>Кока кола</td>
-          <td>5</td>
-          <td>13</td>
-        </tr>
-        <tr class="text-right">
-          <th scope="row"></th>
-          <td></td>
-          <th>Вкупно</th>
-          <th>4968,16 денари</th>
+        <tr class="text-center"  *ngFor="let result of invoiceItemList; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{result.idProduct.name}}</td>
+          <td>{{result.quantity}}</td>
+          <td>{{result.price}}</td>
         </tr>
       </tbody>
     </table>
@@ -135,12 +119,12 @@
 
 <div class="row ml-5 mr-5 mb-5 mt-3 justify-content-center">
       <div class="col-12">
-        <h3>Преглед на фактури</h3>
+        <h3>Преглед на сите фактури</h3>
       </div>
       <table class="table">
         <thead id="test">
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Број на фактура</th>
             <th scope="col">Фирма</th>
             <th scope="col">Датум на издавање</th>
             <th scope="col">Датум на доспевање</th>
@@ -149,29 +133,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr (click)="getInvFromTable()">
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr (click)="getInvFromTable()"> 
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr (click)="getInvFromTable()">
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+          <tr *ngFor="let result of allInvoiceList" class="text-center" (click)="getInvFromTable(result.name)">
+            <td>{{result.name}}</td>
+            <td>{{result.companyName}}</td>
+            <td>{{result.dateInsert}}</td>
+            <td>{{result.deadline}}</td>
+            <td>{{result.price}}</td>
+            <td>{{result.status}}</td>
           </tr>
         </tbody>
       </table>

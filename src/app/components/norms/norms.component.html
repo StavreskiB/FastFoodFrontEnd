@@ -13,10 +13,9 @@
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Продукт</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Кока кола</option>
-              <option value="neplatena">Швепс</option>
-            </select>
+            <mat-select required [formControl]="productForm.controls['mainProduct']">
+              <mat-option *ngFor="let result of allStockList" [value]="result.idProduct.idProduct" (click)="onChangeMainProduct(result.idProduct.idProduct)">{{result.idProduct.name}}</mat-option>
+          </mat-select>
         </mat-form-field>
     </div>
     <div class="col-1">
@@ -29,35 +28,39 @@
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Продукт</mat-label>
-            <select matNativeControl required>
-            <option value="platena">Кока кола</option>
-            <option value="neplatena">Швепс</option>
-            </select>
+            <mat-select required [formControl]="productForm.controls['product']" [disabled]="disableSelect">
+              <mat-option *ngFor="let result of allStockList" (click)="onChangeProduct(result.idProduct.idProduct)" [value]="result.idProduct.idProduct">{{result.idProduct.name}}</mat-option>
+           </mat-select>
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Тип</mat-label>
-            <select matNativeControl required>
-              <option value="platena">Парче</option>
-              <option value="neplatena">Грамажа</option>
-            </select>
+            <mat-select [formControl]="productForm.controls['type']" required [disabled]="disableSelect">
+              <mat-option *ngFor="let result of productTypeList" [value]="result.idProductType">{{result.name}}</mat-option>
+           </mat-select>
         </mat-form-field>
     </div>
     <div class="col-2">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Количина</mat-label>
-            <input matInput>
+            <input matInput [formControl]="productForm.controls['quantity']" required>
         </mat-form-field>
       </div>
-    <div class="col-2 text-center">
-      <a class="btn btn-lg" (click)="showNormsTable()">
+    <div class="col-2 text-center" *ngIf="addNew">
+      <a class="btn btn-lg" (click)="addNewNorms()">
            <span>Додади</span> 
       </a>
     </div>
+    <div class="col-2 text-center" *ngIf="!addNew">
+      <a class="btn btn-lg" (click)="updateNorms()">
+           <span>Измени</span> 
+      </a>
+    </div>
+   
 </div>
 <div class="row m-2 justify-content-center" *ngIf="normsTable">
-    <div class="col-8">
+    <div class="col-10">
         <table class="table">
             <thead id="test">
               <tr class="text-center">
@@ -68,84 +71,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="text-center">
-                <th scope="row">Кока кола</th>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="text-center"> 
+              <tr class="text-center" *ngFor="let result of normsList" (click)="getNormsFromTable(result.idNorms)"> 
                 <th scope="row"></th>
-                <td>Кока кола</td>
-                <td>5</td>
-                <td>13</td>
-              </tr>
-              <tr class="text-center">
-                <th scope="row"></th>
-                <td>Кока кола</td>
-                <td>5</td>
-                <td>13</td>
+                <td>{{result.idProduct.name}}</td>
+                <td>{{result.idProduct.idProductType.name}}</td>
+                <td>{{result.quantity}}</td>
               </tr>
             </tbody>
           </table>
-    </div>
-</div>
-<div class="row ml-5 mr-5 mt-4 justify-content-center">
-    <div class="col-12 mt-2">
-        <table class="table">
-            <thead id="test">
-                <tr class="text-center">
-                    <th scope="col">#</th>
-                    <th scope="col">Продукт</th>
-                    <th scope="col">Тип</th>
-                    <th scope="col">Количина</th>
-                    <th scope="col">Цена</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>Парче</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>Парче</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>Парче</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>Парче</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>Парче</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>Парче</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </div>

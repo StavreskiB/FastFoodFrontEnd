@@ -7,32 +7,37 @@
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Име</mat-label>
-            <input matInput>
+            <input matInput [formControl]="employee.controls['name']" required>
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Презиме</mat-label>
-            <input matInput>
+            <input matInput [formControl]="employee.controls['surname']" required>
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Емаил</mat-label>
-            <input matInput>
+            <mat-label>Корисничко име</mat-label>
+            <input matInput [formControl]="employee.controls['email']" required>
         </mat-form-field>
     </div>
     <div class="col-3">
         <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Мобилен</mat-label>
-            <input matInput>
+            <mat-label>Лозинка</mat-label>
+            <input matInput [formControl]="employee.controls['password']" required>
         </mat-form-field>
     </div>
-    <div class="col-12 text-right">
+    <div class="col-12 text-right" *ngIf="!showUpdate">
         <a class="btn btn-lg" (click)="addNewEmployee()">
             <span>Додади</span>
         </a>
     </div>
+    <div class="col-12 text-right" *ngIf="showUpdate">
+      <a class="btn btn-lg" (click)="updateEmployee()">
+          <span>Измени</span>
+      </a>
+  </div>
 </div>
 
 <div class="row ml-5 mr-5 mt-1 justify-content-center">
@@ -46,31 +51,17 @@
             <th scope="col">#</th>
             <th scope="col">Име</th>
             <th scope="col">Презиме</th>
-            <th scope="col">Емаил</th>
-            <th scope="col">Мобилен</th>
+            <th scope="col">Корисничко име</th>
+            <th scope="col">Датум на внесување</th>
           </tr>
         </thead>
         <tbody>
-          <tr (click)="getEmpFromTable()">
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr (click)="getEmpFromTable()"> 
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-          </tr>
-          <tr (click)="getEmpFromTable()">
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
+          <tr *ngFor="let empData of employeeList; ;let i = index" (click)=getEmpFromTable(empData.idUser)>
+            <th scope="row">{{i+1}}</th>
+            <td>{{empData.name}}</td>
+            <td>{{empData.surname}}</td>
+            <td>{{empData.email}}</td>
+            <td>{{empData.dateInsert}}</td>
           </tr>
         </tbody>
       </table>
