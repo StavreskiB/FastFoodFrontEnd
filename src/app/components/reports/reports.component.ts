@@ -15,6 +15,8 @@ export class ReportsComponent implements OnInit {
   companyId = sessionStorage.getItem('companyId');
   totalPrice = 0;
   reportsList : any = [];
+  isOpen: boolean;
+  filteredList : any = [];
   productForReports : any = [];
   constructor(private managementService : ManagementService,
     private router: Router,
@@ -38,6 +40,8 @@ export class ReportsComponent implements OnInit {
   }
 
   getItemForExpPanel(result){
+    this.totalPrice = 0;
+    this.productForReports = [];
     this.managementService.getItemForExpPanel(this.companyId, result.date, result.shift).subscribe(data =>{
       if(data != null && data != "" && data != []){
         console.log(data);

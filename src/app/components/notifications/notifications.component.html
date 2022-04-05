@@ -16,10 +16,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>Кока кола</td>
-                    <td>5</td>
+                <tr class="text-center" *ngFor="let result of limitList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{result.idProduct.name}}</td>
+                    <td>{{result.quantity}}</td>
                 </tr>
             </tbody>
         </table>
@@ -35,16 +35,18 @@
                     <th scope="col">Фирма</th>
                     <th scope="col">Датум на издавање</th>
                     <th scope="col">Датум на доспевање</th>
+                    <th scope="col">Сума</th>
                     <th scope="col">Статус</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center">
-                    <th scope="row">AC3123-15</th>
-                    <td>Прилепска пивара</td>
-                    <td>15.12.2021</td>
-                    <td>22.12.2021</td>
-                    <td>Неплатена</td>
+                <tr class="text-center" *ngFor="let result of invoiceInfo; let i = index">invoiceInfo
+                    <th scope="row">{{result.Name}}</th>
+                    <td>{{result.CompanyName}}</td>
+                    <td>{{result.DateInsert}}</td>
+                    <td>{{result.Deadline}}</td>
+                    <td>{{result.Price}}</td>
+                    <td>{{result.Status}}</td>
                 </tr>
             </tbody>
         </table>

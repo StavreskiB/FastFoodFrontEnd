@@ -4,5 +4,5 @@ export class Settings {
     firstShiftStart : any;
     secondShiftStart : any;
     limitPiece : any;
-    limitGr : any;
+    limitDays : any;
 }

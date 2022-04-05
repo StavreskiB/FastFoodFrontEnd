@@ -25,5 +25,26 @@ export class ManagementService {
                      .set('shift', shift.toString());
     return this.http.get<any>(this.restUrl + 'management/getItemForExpPanel', {headers : headers});
    }
+   
+   getDataForDelivery(companyId){
+    let headers = new HttpHeaders();
+    headers = headers.set('companyId', companyId.toString());
+
+    return this.http.get<any>(this.restUrl + 'management/getDataForDelivery', {headers : headers})
+  }
+
+  getDataForTotalOrders(companyId){
+    let headers = new HttpHeaders();
+    headers = headers.set('companyId', companyId.toString());
+
+    return this.http.get<any>(this.restUrl + 'management/getDataForTotalOrders', {headers : headers})
+  }
+
+  getTotalPriceForBills(companyId){
+    let headers = new HttpHeaders();
+    headers = headers.set('companyId', companyId.toString());
+
+    return this.http.get<any>(this.restUrl + 'management/getTotalPriceForBills', {headers : headers})
+  }
 
 }

@@ -24,7 +24,7 @@ export class RestaurantComponent implements OnInit {
   companyId = sessionStorage.getItem('companyId');
   orderForm: any = FormGroup;
   allStockList : any = [];
-  addons : any = "K M Kr S";
+  addons : any = "Kr S K";
   showDescription : any = false;
   characters = [''];
   linkIndex = 0;
@@ -85,9 +85,8 @@ export class RestaurantComponent implements OnInit {
 
     this.getBillsForMark(type, number);
     this.getBillsItem(number);
-
+    this.getReservedTable();
     this.src.nativeElement.focus();
-
   }
 
   selectTableDelivery(type, number){
@@ -98,9 +97,8 @@ export class RestaurantComponent implements OnInit {
 
     this.getBillsForMark(type, number);
     this.getBillsItem(number);
-
+    this.getReservedTable();
     this.src.nativeElement.focus();
-
   }
 
   getReservedTable(){
@@ -135,11 +133,10 @@ export class RestaurantComponent implements OnInit {
           this.toggleF9 = true;
 
           if(data[i].tables == 10)
-          this.toggleF10 = true;
+            this.toggleF10 = true;
 
           if(data[i].tables == 11)
           this.toggleF11 = true;
-          
         }
       }
     });
@@ -156,12 +153,11 @@ export class RestaurantComponent implements OnInit {
   }
 
   getAllStock(){
-    this.productService.getProductForStockTable(this.companyId).subscribe(data =>{
+    this.productService.getStockByCompanyIdAndType(this.companyId).subscribe(data =>{
       if(data != null && data != "" && data != []){
         this.allStockList = data;
         console.log(this.allStockList);
         for(let i = 0 ; i < this.allStockList.length; i++){
-          //this.characters.push(this.allStockList[i].idProduct.name)
           this.options.push(this.allStockList[i].idProduct.name)
         }
       }else{
@@ -170,7 +166,7 @@ export class RestaurantComponent implements OnInit {
     });
   }
 
-  printMark(){
+  convertToBills(){
     this.restaurantService.convertToBills(this.selectedTableName, this.companyId).subscribe(data =>{
       if(data != null && data != "" && data != []){
          this.getReservedTable();
@@ -214,8 +210,6 @@ export class RestaurantComponent implements OnInit {
     this.quantity.nativeElement.focus();
   }
 
-  
-
   getBillsForMark(type, number){
     this.productForMarkList = [];
     this.restaurantService.getBillsForMark(number, this.companyId, type, 1).subscribe(data =>{
@@ -230,20 +224,20 @@ export class RestaurantComponent implements OnInit {
      });
   }
 
-  // sss($event){
-  //   alert("1");
-  // }
-
   addForMark(){
     let productName = this.orderForm.controls['product'].value;
     let quantity = this.orderForm.controls['quantity'].value;
     let description = this.orderForm.controls['address'].value;    
+
     this.restaurantService.saveForMark(this.selectedTableName, productName, quantity, description, this.addons, this.companyId, this.userEmail, this.selectedTableType, "Markica").subscribe(data =>{
-     // if(data){
+      if(data){
         this.src.nativeElement.focus();
         this.showForMark = true;
         this.getBillsForMark(this.selectedTableType, this.selectedTableName)
-       ///}
+      
+        this.myControl.patchValue("");
+
+      }
      });
      this.orderForm.controls['quantity'].setValue("");
   }
@@ -260,8 +254,8 @@ export class RestaurantComponent implements OnInit {
     this.restaurantService.printBills(this.selectedTableName, this.companyId).subscribe(data =>{
       if(data != null && data != "" && data != []){
           console.log("printBills", data);
-          location.reload();
-        }
+          window.location.reload()
+         }
      });
   }
  

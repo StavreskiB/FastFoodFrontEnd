@@ -57,9 +57,10 @@ export class RestaurantmenuComponent implements OnInit {
 
 
   getStockByCompanyId(){
-    this.productService.getStockByCompanyId(this.companyId).subscribe(data =>{
+    this.productService.getStockByCompanyIdAndType(this.companyId).subscribe(data =>{
       if(data != null && data != "" && data != []){
         this.stockList = data;
+        console.log(this.stockList)
       }else{
       
       }
@@ -67,7 +68,7 @@ export class RestaurantmenuComponent implements OnInit {
   }
 
   getAllProductByCompanyId(){
-    this.productService.getAllProductByCompanyId(this.companyId).subscribe(data =>{
+    this.productService.getAllProductForSell(this.companyId).subscribe(data =>{
       if(data != null && data != "" && data != []){
         this.productWithoutQuantity = data;
         console.log("this.productWithoutQuantity", this.productWithoutQuantity)
@@ -85,7 +86,7 @@ export class RestaurantmenuComponent implements OnInit {
         this.update = true;
         this.productForm.controls['updatetype'].setValue(data[0].idProduct.idProductType.idProductType);
         this.productForm.controls['updateproduct'].setValue(data[0].idProduct.idProduct);
-        this.productForm.controls['updatequantity'].setValue(data[0].quantity);
+        this.productForm.controls['updatequantity'].setValue(data[0].idProduct.quantity);
         this.productForm.controls['updateprice'].setValue(data[0].idProduct.price);
       } else {
         this.notify.showError("Настана грешка, продуктот кој го барате не е пронајден!", "");
@@ -106,6 +107,8 @@ export class RestaurantmenuComponent implements OnInit {
 
     this.productService.addProductInMenu(this.product).subscribe(data =>{
       if(data != null && data != "" && data != []){
+        this.getAllProductByCompanyId();
+        this.getStockByCompanyId();
         this.notify.showSuccess("Продуктот е зачуван!", "");
       }else{
         this.notify.showError("Настана грешка, продуктот не е зачуван!", "");
@@ -125,6 +128,8 @@ export class RestaurantmenuComponent implements OnInit {
     this.productService.addProductInMenu(this.product).subscribe(data =>{
       if(data != null && data != "" && data != []){
         console.log(data)
+        this.getAllProductByCompanyId();
+        this.getStockByCompanyId();
         this.notify.showSuccess("Промените е додаден во менито!", "");
       }else{
         this.notify.showError("Настана грешка, продуктот не е изменет!", "");

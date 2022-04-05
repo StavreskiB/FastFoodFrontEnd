@@ -49,7 +49,7 @@ export class RestaurantService {
     let headers = new HttpHeaders();
     headers = headers.set('table', table.toString())
                      .set('companyId', companyId.toString());
-    
+                     
    return this.http.get<any>(this.restUrl + 'restaurant/convertToBills', {headers : headers})
   }
 

@@ -43,9 +43,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {NgxPrintModule} from 'ngx-print';
+import { MatIconModule} from '@angular/material/icon';
+import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import { NgxPrintModule} from 'ngx-print';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,8 @@ import {NgxPrintModule} from 'ngx-print';
     LegendService, 
     TooltipService,
     { provide:  HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true, },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+
   ],
     
   bootstrap: [AppComponent]

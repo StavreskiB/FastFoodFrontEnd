@@ -70,6 +70,7 @@ export class StockComponent implements OnInit {
      this.productService.addProductInStock(this.companyId, this.productForm.controls['product'].value, this.productForm.controls['quantity'].value).subscribe(data =>{
       if(data != null && data != "" && data != []){
         this.notify.showSuccess("Количината е успешно додадена во залиха", "")
+        this.getProductForStockTable()
       }else{
         this.notify.showError("Настана грешка, продуктот не е додаден во залиха!", "");
       }
@@ -100,6 +101,7 @@ export class StockComponent implements OnInit {
       this.productService.saveNewProduct(this.product, this.productForm.controls['quantity'].value ).subscribe(data =>{
         if(data != null && data != "" && data != []){
           console.log(data)
+          this.getProductForStockTable();
         }else{
           this.notify.showError("Настана грешка, продуктот не е зачуван!", "");
         }

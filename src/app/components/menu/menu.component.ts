@@ -39,7 +39,8 @@ export class MenuComponent implements OnInit {
   }
 
   getBills(){
-    this.router.navigateByUrl('/home/bills');
+    //this.router.navigateByUrl('/home/bills');
+    alert("Во изработка")
   }
 
   getNorms(){

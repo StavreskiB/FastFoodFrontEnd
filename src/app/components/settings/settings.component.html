@@ -54,32 +54,32 @@
 <div class="row ml-5 mr-5 mt-3">
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Парче</mat-label>
+            <mat-label>Продукти</mat-label>
             <mat-select required [(value)]="selectedPiece">
-              <mat-option value="Парче" selected>Парче</mat-option>
+              <mat-option value="Продукти" selected>Продукти</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Лимит</mat-label>
-            <input matInput required [formControl]="settingsForm.controls['limitPiece']">
+            <input type="number" matInput required [formControl]="settingsForm.controls['limitPiece']">
     </mat-form-field>
     </div>  
 </div>
 <div class="row ml-5 mr-5 ">
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Грамажа</mat-label>
+            <mat-label>Денови за факутра</mat-label>
             <mat-select required [(value)]="selectedGr">
-              <mat-option value="Грамажа" selected>Грамажа</mat-option>
+              <mat-option value="Денови за фактура" selected>Денови</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     <div class="col-4">
         <mat-form-field class="w-100" appearance="fill">
             <mat-label>Лимит</mat-label>
-            <input matInput required [formControl]="settingsForm.controls['limitGr']">
+            <input type="number" matInput required [formControl]="settingsForm.controls['limitDays']">
         </mat-form-field>
     </div>  
     <div class="col-4 text-right">

@@ -17,6 +17,7 @@ export class NormsComponent implements OnInit {
   norms : Norms;
   product : Product;
   allStockList : any = [];
+  allNorms: any = [];
   productTypeList: any = [];
   normsList : any = [];
   productForm: FormGroup;
@@ -40,7 +41,8 @@ export class NormsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStockByCompanyId();
-    this.getAllProductType()
+    this.getAllProductType();
+    this.getProductNorms();
   }
 
   getAllProductType(){
@@ -55,7 +57,7 @@ export class NormsComponent implements OnInit {
   }
 
   getStockByCompanyId(){
-    this.productService.getAllStockByCompanyId(this.companyId).subscribe(data =>{
+    this.productService.getStockByCompanyIdAndType(this.companyId).subscribe(data =>{
       if(data != null && data != "" && data != []){
         this.allStockList = data;
         console.log(this.allStockList)
@@ -65,6 +67,16 @@ export class NormsComponent implements OnInit {
     });
   }
 
+  getProductNorms(){
+      this.productService.getProductNorms(this.companyId).subscribe(data =>{
+        if(data != null && data != "" && data != []){
+          this.allNorms = data;
+          console.log("this.allNorms", this.allNorms)
+        }else{
+        
+        }
+      });
+  }
 
 
   addNorms(){
@@ -91,10 +103,12 @@ export class NormsComponent implements OnInit {
     let quantity = this.productForm.controls['quantity'].value;
 
     if(idProduct != "" && idProductN != "" && quantity != ""){
+
       this.productService.addNewNorms(companyId, idProduct, idProductN, quantity).subscribe(data =>{
         if(data != null && data != "" && data != []){
           this.notify.showSuccess("Нормативот е успешно зачуван", "");
           this.normsTable = true;
+          this.onChangeMainProduct(idProduct);
         }else{
           this.notify.showError("Настана грешка!", "");
         }

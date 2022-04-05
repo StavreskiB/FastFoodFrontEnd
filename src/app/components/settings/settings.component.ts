@@ -16,8 +16,8 @@ export class SettingsComponent implements OnInit {
   companyId = sessionStorage.getItem('companyId');
   settings : Settings;
   settingsForm : FormGroup;
-  selectedPiece : any = "Парче";
-  selectedGr : any = "Грамажа";
+  selectedPiece : any = "Продукти";
+  selectedGr : any = "Денови за фактура";
   selectedFirst : any = "Прва";
   selectedSecond : any = "Втора";
 
@@ -33,7 +33,7 @@ export class SettingsComponent implements OnInit {
         'firstShiftStart': ['', Validators.required],
         'secondShiftStart': ['', Validators.required],
         'limitPiece': ['', Validators.required],
-        'limitGr': ['', Validators.required],
+        'limitDays': ['', Validators.required],
       });
     }
 
@@ -57,10 +57,10 @@ export class SettingsComponent implements OnInit {
   saveLimit(){
     this.settings = new Settings();
 
-    this.settings.limitGr = this.settingsForm.controls['limitGr'].value;
+    this.settings.limitDays = this.settingsForm.controls['limitDays'].value;
     this.settings.limitPiece = this.settingsForm.controls['limitPiece'].value;
     this.settings.companyId = this.companyId;
-
+    console.log(this.settings);
     this.settingsService.saveLimitInfo(this.settings).subscribe(data =>{
       if(data){
         this.notify.showSuccess("Лимитот е успешно зачуван!", "")
@@ -93,7 +93,7 @@ export class SettingsComponent implements OnInit {
       if(data != null && data != "" && data != []){
           console.log(data);
           this.settingsForm.controls['limitPiece'].setValue(data[0].limitPiece);
-          this.settingsForm.controls['limitGr'].setValue(data[0].limitGr);
+          this.settingsForm.controls['limitDays'].setValue(data[0].limitDays);
           this.settingsForm.controls['firstShiftStart'].setValue(data[0].firstShiftStart);
           this.settingsForm.controls['secondShiftStart'].setValue(data[0].secondShiftStart);
       }

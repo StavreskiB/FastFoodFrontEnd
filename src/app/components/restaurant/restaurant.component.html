@@ -65,7 +65,6 @@
               <form class="example-form">
                 <mat-form-field class="example-full-width w-100" appearance="fill">
                   <input type="text"
-                         #src
                          placeholder="Pick one"
                          aria-label="Number"
                          matInput
@@ -73,6 +72,7 @@
                          [matAutocomplete]="auto"
                          required
                          placeholder="Пребарај..."
+                         #src
                         >
                   <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onChangeOption($event)'>
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)=getFromSearch(option)>
@@ -89,21 +89,13 @@
               </mat-form-field>
             </div>
             <div class="col-1"  style="align-self: center;" *ngIf="showLeftTable">
-              <img (click)="addForMark()" src="../../../assets/restIcon/plus.png">
+              <img (click)="addForMark()" src="assets/restIcon/plus.png">
             </div>
             <div class="col-3 mt-1" *ngIf="showLeftTable">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" checked (change)="onCheck('K')" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
-                        Кечап
-                    </label>
-                  </div>
-            </div>
-            <div class="col-3 mt-1" *ngIf="showLeftTable">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" checked (change)="onCheck('M')" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                        Мајонез
+                        Краставица
                     </label>
                   </div>
             </div>
@@ -132,7 +124,8 @@
                       <td>{{product.quantity}}</td>
                       <td>{{product.addons}}</td>
                       <td class="noprint">
-                        <img (click)="deleteMark(product.idBills)" src="../../../assets/restIcon/icon1.png"> 
+                        <i class="fad fa-turkey"></i>
+                        <img (click)="deleteMark(product.idBills)" src="assets/restIcon/icon1.png"> 
                       </td>
                     </tr>
                     <tr class="lastTr">
@@ -140,9 +133,8 @@
                       <td></td>
                       <td></td>
                       <td class="hov">
-
                         <button class="btn"
-                        (click)="printMark()"
+                        (click)="convertToBills()"
                         [printStyle]="{ td : {border : '1px dotted black',  padding : '3px'}, img : { display: 'none' }, button : { display: 'none' }, span : { display: 'none' }  }"
                          printSectionId="print-section" 
                          ngxPrint>Принт</button>
@@ -159,6 +151,7 @@
         <tbody>
           <tr>
             <td><b>Mount Burger</b></td>
+            <td><img style="width:40px; height: 40px ;"src="http://myprintscreen.com/s/1641259409.93656611.png"></td>
           </tr>
         </tbody>
       </table>
@@ -186,7 +179,7 @@
           <td>
             <button class="btn"
                         (click)="printBill()"
-                        [printStyle]="{ td : {border : '1px solid black', padding : '5px'}, img : { display: 'none' }, th : {display: 'none'}, button : { display: 'none' }, span : { display: 'none' }  }"
+                        [printStyle]="{ td : {border : '1px solid black', padding : '2px'},  th : {display: 'none'}, button : { display: 'none' }, span : { display: 'none' }  }"
                          printSectionId="printBill" 
                          ngxPrint>Сметка</button>
             </td>

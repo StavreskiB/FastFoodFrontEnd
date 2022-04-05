@@ -33,17 +33,22 @@ export class ProductService {
     return this.http.get<any>(this.restUrl + 'product/getAllStockByCompanyId', {headers : headers})
   }
 
-  getStockByCompanyId(companyId){
+  getStockByCompanyIdAndType(companyId){
     let headers = new HttpHeaders();
     headers = headers.set('CompanyId', companyId.toString())
-    return this.http.get<any>(this.restUrl + 'product/getStockByCompanyId', {headers : headers})
+    return this.http.get<any>(this.restUrl + 'product/getStockByCompanyIdAndType', {headers : headers})
   }
-
 
   getProductForStockTable(companyId){
     let headers = new HttpHeaders();
     headers = headers.set('CompanyId', companyId.toString())
     return this.http.get<any>(this.restUrl + 'product/getProductForStockTable', {headers : headers})
+  }
+
+  getProductNorms(companyId){
+    let headers = new HttpHeaders();
+    headers = headers.set('CompanyId', companyId.toString())
+    return this.http.get<any>(this.restUrl + 'product/getProductNorms', {headers : headers})
   }
   getStockById(companyId, stockId){
     let headers = new HttpHeaders();
@@ -74,10 +79,10 @@ export class ProductService {
     return this.http.get<any>(this.restUrl + 'product/addProductInStock', {headers : headers})
   }
 
-  getAllProductByCompanyId(companyId){
+  getAllProductForSell(companyId){
     let headers = new HttpHeaders();
     headers = headers.append('companyId', companyId.toString());
-    return this.http.get<any>(this.restUrl + 'product/getAllProductByCompanyId', {headers : headers})
+    return this.http.get<any>(this.restUrl + 'product/getAllProductForSell', {headers : headers})
   }
 
   addProductInMenu(product : Product){
@@ -105,14 +110,19 @@ export class ProductService {
     headers = headers.set('idNorms', idNorms.toString())
     return this.http.get<any>(this.restUrl + 'product/getNormsById', {headers : headers})
   }
-  
 
   updateNorms(idNorms, quantity){
     let headers = new HttpHeaders();
     headers = headers.set('idNorms', idNorms.toString())
                      .set('quantity', quantity.toString())
 
-    return this.http.get<any>(this.restUrl + 'product/updateNorms', {headers : headers})
+    return this.http.get<any>(this.restUrl + 'management/updateNorms', {headers : headers})
+  }
+
+  getLimitProduct(companyId){
+    let headers = new HttpHeaders();
+    headers = headers.append('companyId', companyId.toString());
+    return this.http.get<any>(this.restUrl + 'product/getLimitProduct', {headers : headers})
   }
  
 }

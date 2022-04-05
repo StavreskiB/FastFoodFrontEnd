@@ -1,6 +1,6 @@
 <div class="row ml-5 mr-5 mt-5 justify-content-center">
   <div class="col-3">
-    <h3 style="margin: 0px !important;align-self: center !important;">Додади нова фактура</h3>
+    <h3 style="margin: 0px !important;align-self: center !important;">Додади нов фактура</h3>
   </div>
   <div class="col-1">
     <a class="btn btn-lg" (click)="newInvoice()">
@@ -45,7 +45,7 @@
   <div class="col-3">
     <mat-form-field class="w-100" appearance="fill">
         <mat-label>Износ</mat-label>
-        <input matInput [formControl]="invoiceForm.controls['price']" required [readonly]="disableSelect">
+        <input matInput type="number" [formControl]="invoiceForm.controls['price']" required [readonly]="disableSelect">
     </mat-form-field>
   </div>
   <div class="col-3">
@@ -81,13 +81,13 @@
   <div class="col-3" *ngIf="showItemsAdd">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Количина</mat-label>
-      <input matInput [formControl]="invoiceItemForm.controls['quantity']" required>
+      <input matInput type="number" [formControl]="invoiceItemForm.controls['quantity']" required>
     </mat-form-field>
   </div>
   <div class="col-3" *ngIf="showItemsAdd">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Цена</mat-label>
-      <input matInput [formControl]="invoiceItemForm.controls['price']" required>
+      <input matInput type="number" [formControl]="invoiceItemForm.controls['price']" required>
     </mat-form-field>
   </div>
   <div class="col-1" style="align-self: center;" *ngIf="showItemsAdd">

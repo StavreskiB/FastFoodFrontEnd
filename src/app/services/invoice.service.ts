@@ -46,4 +46,9 @@ export class InvoiceService {
     headers = headers.set('invoiceName', invoiceName.toString());
     return this.http.get<any>(this.restUrl + 'invoice/changeInvoiceStatus', {headers : headers})
   }
+  getLimitInvoice(companyId){
+    let headers = new HttpHeaders();
+    headers = headers.set('companyId', companyId.toString());
+    return this.http.get<any>(this.restUrl + 'invoice/getLimitInvoice', {headers : headers})
+  }
 }

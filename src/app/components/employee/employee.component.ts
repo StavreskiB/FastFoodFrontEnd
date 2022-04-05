@@ -59,6 +59,7 @@ export class EmployeeComponent implements OnInit {
         if(data != null && data != "" && data != []){
           console.log(data);
           this.notify.showSuccess("Успешно зачувано", "");
+          this.getAllEmployee();
         }else{
           this.notify.showError("Настана грешка", "");
         }
@@ -121,6 +122,7 @@ export class EmployeeComponent implements OnInit {
     this.loginService.UpdateUser(this.users, this.idForUpdate).subscribe(data =>{
       if(data != null && data != "" && data != []){
         this.showUpdate = false;
+        this.getAllEmployee();
         this.notify.showSuccess("Успешно изменето", "");
       }else{
         this.notify.showError("Настана грешка", "");
